@@ -17,8 +17,15 @@ class Index(APIView):
 class CategoriaViewSet(viewsets.ModelViewSet):
     queryset = Categoria.objects.all()
     serializer_class = CategoriaSerializer
+    filterset_fields = {
+        'nome': ['contains']
+    }
 
 
 class ProdutoViewSet(viewsets.ModelViewSet):
     queryset = Produto.objects.all()
     serializer_class = ProdutoSerializer
+    filterset_fields = {
+        'nome': ['contains'],
+        'descricao': ['contains']
+    }
