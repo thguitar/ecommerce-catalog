@@ -1,5 +1,13 @@
 # Ecommerce Catalog API Documentation
 
+## Summary
+
+* [Authentication](#authentication)
+* [API Status](#api-status)
+* [Catalog Endpoints](#catalog-endpoints)
+* [Pagination](#pagination)
+
+
 ## Authentication
 
 To access the API endpoints is required a valid Token to be included in the header of the request:
