@@ -27,5 +27,6 @@ class ProdutoViewSet(viewsets.ModelViewSet):
     serializer_class = ProdutoSerializer
     filterset_fields = {
         'nome': ['contains'],
-        'descricao': ['contains']
+        'descricao': ['contains'],
+        'categoria__id': ['exact']
     }

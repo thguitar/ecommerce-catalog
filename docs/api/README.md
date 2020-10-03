@@ -124,14 +124,23 @@ Response: ```200 OK```
     Response: ```200 OK```
     ```bash
     {
-        "count": 1,
-        "next": null,
+        "count": 28,
+        "next": "localhost:8000/api/v1/categorias/?limit=10&offset=10",
         "previous": null,
         "results": [
             {
                 "id": 1,
                 "nome": "Nome Categoria"
-            }
+            },
+            {
+                "id": 2,
+                "nome": "Nome Categoria"
+            },
+            {
+                "id": 3,
+                "nome": "Nome Categoria"
+            },
+            ...
         ]
     }
     ```
@@ -202,7 +211,7 @@ Response: ```200 OK```
     
 * Filter by nome: 
 
-    URL: ```localhost:8000/api/v1/categorias/nome__contains=<nome categoria>```
+    URL: ```localhost:8000/api/v1/categorias/?nome__contains=<nome categoria>```
     
     Method: ```GET```
 
@@ -210,7 +219,7 @@ Response: ```200 OK```
     ```bash
     {
         "count": 1,
-        "next": "localhost:8000/api/v1/categorias/?limit=10&nome__contains=<nome categoria>&offset=10",
+        "next": null,
         "previous": null,
         "results": [
             {
@@ -232,7 +241,7 @@ Response: ```200 OK```
     Response: ```200 OK```
     ```bash
     {
-        "count": 1,
+        "count": 100,
         "next": "localhost:8000/api/v1/produtos/?limit=10&offset=10",
         "previous": null,
         "results": [
@@ -244,6 +253,15 @@ Response: ```200 OK```
                 "categoria": 1,
                 "imagem": '<image_url>'
             }
+            {
+                "id": 2,
+                "nome": "Nome Produto",
+                "descricao": "Descrição Produto",
+                "preco": "180.00",
+                "categoria": 1,
+                "imagem": '<image_url>'
+            },
+            ...
         ]
     }
     ```
@@ -332,7 +350,7 @@ Response: ```200 OK```
 
 * Filter by nome: 
 
-    URL: ```localhost:8000/api/v1/produtos/nome__contains=<nome produto>```
+    URL: ```localhost:8000/api/v1/produtos/?nome__contains=<nome produto>```
     
     Method: ```GET```
 
@@ -340,7 +358,7 @@ Response: ```200 OK```
     ```bash
     {
         "count": 1,
-        "next": "localhost:8000/api/v1/produtos/?limit=10&nome__contains=<nome produto>&offset=10",
+        "next": null,
         "previous": null,
         "results": [
             {
@@ -357,7 +375,7 @@ Response: ```200 OK```
 
 * Filter by descricao: 
 
-    URL: ```localhost:8000/api/v1/produtos/descricao__contains=<nome produto>```
+    URL: ```localhost:8000/api/v1/produtos/?descricao__contains=<nome produto>```
     
     Method: ```GET```
 
@@ -365,7 +383,7 @@ Response: ```200 OK```
     ```bash
     {
         "count": 1,
-        "next": "localhost:8000/api/v1/produtos/?limit=10&descricao__contains=<nome produto>&offset=10",
+        "next": null,
         "previous": null,
         "results": [
             {
@@ -374,6 +392,30 @@ Response: ```200 OK```
                 "descricao": "Descrição Produto",
                 "preco": "180.00",
                 "categoria": 1,
+                "imagem": '<image_url>'
+            }
+        ]
+    }
+    ```
+* Filter by categoria: 
+
+    URL: ```localhost:8000/api/v1/produtos/?categoria__id=<categoria_id>```
+    
+    Method: ```GET```
+
+    Response: ```200 OK```
+    ```bash
+    {
+        "count": 1,
+        "next": null,
+        "previous": null,
+        "results": [
+            {
+                "id": 1,
+                "nome": "Nome Produto",
+                "descricao": "Descrição Produto",
+                "preco": "180.00",
+                "categoria": <categoria_id>,
                 "imagem": '<image_url>'
             }
         ]
