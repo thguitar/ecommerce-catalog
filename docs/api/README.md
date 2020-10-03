@@ -121,7 +121,7 @@ Response: ```200 OK```
     
     Method: ```GET```
 
-    Reponse: ```200 OK```
+    Response: ```200 OK```
     ```bash
     {
         "count": 1,
@@ -142,7 +142,7 @@ Response: ```200 OK```
     
     Method: ```GET```
     
-    Reponse: ```200 OK```
+    Response: ```200 OK```
     ```bash
     {
         "id": 1,
@@ -164,7 +164,7 @@ Response: ```200 OK```
     }  
     ```
   
-    Reponse: ```201 Created```
+    Response: ```201 Created```
     ```bash
     {
         "id": 1,
@@ -184,7 +184,7 @@ Response: ```200 OK```
         "nome": "Nome Categoria Update"
     }  
     ```
-    Reponse: ```200 OK```
+    Response: ```200 OK```
     ```bash
     {
         "id": 1,
@@ -198,7 +198,7 @@ Response: ```200 OK```
     
     Method: ```DELETE```
     
-    Reponse: ```204 No Content```
+    Response: ```204 No Content```
     
 * Filter by nome: 
 
@@ -206,7 +206,7 @@ Response: ```200 OK```
     
     Method: ```GET```
 
-    Reponse: ```200 OK```
+    Response: ```200 OK```
     ```bash
     {
         "count": 1,
@@ -229,7 +229,7 @@ Response: ```200 OK```
     
     Method: ```GET```
 
-    Reponse: ```200 OK```
+    Response: ```200 OK```
     ```bash
     {
         "count": 1,
@@ -254,7 +254,7 @@ Response: ```200 OK```
     
     Method: ```GET```
     
-    Reponse: ```200 OK```
+    Response: ```200 OK```
     ```bash
     {
         "id": 1,
@@ -283,7 +283,7 @@ Response: ```200 OK```
     } 
     ```
   
-    Reponse: ```201 Created```
+    Response: ```201 Created```
     ```bash
     {
         "id": 1,
@@ -310,7 +310,7 @@ Response: ```200 OK```
         "categoria": 1
     }  
     ```
-    Reponse: ```200 OK```
+    Response: ```200 OK```
     ```bash
     {
         "id": 1,
@@ -328,7 +328,7 @@ Response: ```200 OK```
     
     Method: ```DELETE```
     
-    Reponse: ```204 No Content```
+    Response: ```204 No Content```
 
 * Filter by nome: 
 
@@ -336,7 +336,7 @@ Response: ```200 OK```
     
     Method: ```GET```
 
-    Reponse: ```200 OK```
+    Response: ```200 OK```
     ```bash
     {
         "count": 1,
@@ -361,7 +361,7 @@ Response: ```200 OK```
     
     Method: ```GET```
 
-    Reponse: ```200 OK```
+    Response: ```200 OK```
     ```bash
     {
         "count": 1,
