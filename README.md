@@ -47,3 +47,7 @@ Project to Controller a Ecommerce Product Catalog.
 ```bash 
     python manage.py runserver
 ```
+
+## Documentation
+
+* [API Documentation](docs/api/README.md)

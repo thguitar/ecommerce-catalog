@@ -1,21 +1,24 @@
-# Ecommerce Catalog API
+# Ecommerce Catalog API Documentation
 
 ## Authentication
 
 To access the API endpoints is required a valid Token to be included in the header of the request:
 ```bash 
-    'Authorization: Token a4f3ecdc0714a3b3b58cd80ca54e322512f77b63'
+'Authorization: Token a4f3ecdc0714a3b3b58cd80ca54e322512f77b63'
 ```
 
 The Token can be acquired through the login with auth endpoints below:
 
-###1. Registration:
+### 1. Registration:
 
-**URL**
+**URL:**
 ```bash
-    POST localhost:8000/rest_auth/registration/
+localhost:8000/rest_auth/registration/
 ```
-**Body**
+
+**Method:** ```POST```
+
+**Body:**
 ```bash
 {
     "username":"my_username", 
@@ -25,19 +28,22 @@ The Token can be acquired through the login with auth endpoints below:
 }  
 ```
 
-**Success Response**
+**Response** ```200 OK``` 
 
-Code: ```200 OK```
-
-Response: ```{"key":"a4f3ecdc0714a3b3b58cd80ca54e322512f77b63"}```
-
-###2. Login:
-
-**URL**
 ```bash
-    POST localhost:8000/rest_auth/login/
+{"key":"a4f3ecdc0714a3b3b58cd80ca54e322512f77b63"}
 ```
-**Body**
+
+### 2. Login:
+
+**URL:**
+```bash
+localhost:8000/rest_auth/login/
+```
+
+**Method:** ```POST```
+
+**Body:**
 ```bash
 {
     "username": "my_username",
@@ -45,79 +51,326 @@ Response: ```{"key":"a4f3ecdc0714a3b3b58cd80ca54e322512f77b63"}```
 }   
 ```
 
-**Success Response**
+**Response:** ```200 OK```
 
-Code: ```200 OK```
+```bash
+{"key":"a4f3ecdc0714a3b3b58cd80ca54e322512f77b63"}
+```
 
-Response: ```{"key":"a4f3ecdc0714a3b3b58cd80ca54e322512f77b63"}```
-
-###3. Logout:
+### 3. Logout:
 
 **URL**
 ```bash
-    POST localhost:8000/rest_auth/logout/
+localhost:8000/rest_auth/logout/
 ```
+
+**Method:** ```POST```
+
 **Header**
 ```bash
 'Authorization: Token a4f3ecdc0714a3b3b58cd80ca54e322512f77b63'
 ```
 
-**Success Response**
+**Response:** ```200 OK```
 
-Code: ```200 OK```
+```bash
+{"detail": "Successfully logged out."}
+```
 
-Response: ```{"detail": "Successfully logged out."}```
+### 4. Request without Authentication Token:
 
-###4. Request without Authentication Token:
+**Response:** ```401 Unauthorized```
 
-Response:
-   ```{"detail":"Authentication credentials were not provided."}```
+```bash
+{"detail":"Authentication credentials were not provided."}
+```
    
+### 4. Request with Invalid Authentication Token:
+
+**Response:** ```401 Unauthorized```
+
+```bash
+{"detail":"Invalid token."}
+```
+
+## API Status
+
+To check the API status just send a **GET** request to ```localhost:8000/api/```.
+Response: ```200 OK```
+```bash
+{
+    "message": "Welcome to the Ecommerce Catalog API!"
+}
+```
     
 ## Catalog Endpoints
 
-###Categoria:
+### Categorias:
 
 * Get All: 
-    URL: ```GET localhost:8000/api/v1/categorias/```
 
-    Reponse:
+    URL: ```localhost:8000/api/v1/categorias/```
+    
+    Method: ```GET```
+
+    Reponse: ```200 OK```
     ```bash
     {
-        "count": 0,
+        "count": 1,
         "next": null,
         "previous": null,
-        "results": []
+        "results": [
+            {
+                "id": 1,
+                "nome": "Nome Categoria"
+            }
+        ]
     }
     ```
 
 * Get By Id: 
     
-    URL: ```GET localhost:8000/api/v1/categorias/<categoria_id>/```
+    URL: ```localhost:8000/api/v1/categorias/<categoria_id>/```
+    
+    Method: ```GET```
+    
+    Reponse: ```200 OK```
+    ```bash
+    {
+        "id": 1,
+        "nome": "Nome Categoria"
+    }
+    ```
 
 
 * Create: 
 
     URL: ```POST localhost:8000/api/v1/categorias/```
+    
+    Method: ```PUT```
 
     Body:
     ```bash
     {
-        "nome": "Categoria Name"
+        "nome": "Nome Categoria"
     }  
+    ```
+  
+    Reponse: ```201 Created```
+    ```bash
+    {
+        "id": 1,
+        "nome": "Nome Categoria"
+    }
     ```
 
 * Update 
 
-    URL: ```PUT localhost:8000/api/v1/categorias/<categoria_id>/```
+    URL: ```localhost:8000/api/v1/categorias/<categoria_id>/```
+    
+    Method: ```PUT```
 
     Body:
     ```bash
     {
-        "nome": "Categoria Name Update"
+        "nome": "Nome Categoria Update"
     }  
+    ```
+    Reponse: ```200 OK```
+    ```bash
+    {
+        "id": 1,
+        "nome": "Nome Categoria Update"
+    }
     ```
 
 * Delete: 
 
-    URL: ```DELETE localhost:8000/api/v1/categorias/<categoria_id>/```
+    URL: ```localhost:8000/api/v1/categorias/<categoria_id>/```
+    
+    Method: ```DELETE```
+    
+    Reponse: ```204 No Content```
+    
+* Filter by nome: 
+
+    URL: ```localhost:8000/api/v1/categorias/nome__contains=<nome categoria>```
+    
+    Method: ```GET```
+
+    Reponse: ```200 OK```
+    ```bash
+    {
+        "count": 1,
+        "next": "localhost:8000/api/v1/categorias/?limit=10&nome__contains=<nome categoria>&offset=10",
+        "previous": null,
+        "results": [
+            {
+                "id": 1,
+                "nome": "Nome Categoria"
+            }
+        ]
+    }
+    ```
+
+### Produtos:
+
+* Get All: 
+
+    URL: ```localhost:8000/api/v1/produtos/```
+    
+    Method: ```GET```
+
+    Reponse: ```200 OK```
+    ```bash
+    {
+        "count": 1,
+        "next": "localhost:8000/api/v1/produtos/?limit=10&offset=10",
+        "previous": null,
+        "results": [
+            {
+                "id": 1,
+                "nome": "Nome Produto",
+                "descricao": "Descrição Produto",
+                "preco": "180.00",
+                "categoria": 1
+            }
+        ]
+    }
+    ```
+
+* Get By Id: 
+    
+    URL: ```localhost:8000/api/v1/produtos/<produto_id>/```
+    
+    Method: ```GET```
+    
+    Reponse: ```200 OK```
+    ```bash
+    {
+        "id": 1,
+        "nome": "Nome Produto",
+        "descricao": "Descrição Produto",
+        "preco": "180.00",
+        "categoria": 1
+    }
+    ```
+
+
+* Create: 
+
+    URL: ```POST localhost:8000/api/v1/produtos/```
+    
+    Method: ```PUT```
+
+    Body:
+    ```bash
+    {
+        "nome": "Nome Produto",
+        "descricao": "Descrição Produto",
+        "preco": "180.00",
+        "categoria": 1
+    } 
+    ```
+  
+    Reponse: ```201 Created```
+    ```bash
+    {
+        "id": 1,
+        "nome": "Nome Produto",
+        "descricao": "Descrição Produto",
+        "preco": "180.00",
+        "categoria": 1
+    }
+    ```
+
+* Update 
+
+    URL: ```localhost:8000/api/v1/produtos/<produto_id>/```
+    
+    Method: ```PUT```
+
+    Body:
+    ```bash
+    {
+        "nome": "Nome Produto Update",
+        "descricao": "Descrição Produto Update",
+        "preco": "180.00",
+        "categoria": 1
+    }  
+    ```
+    Reponse: ```200 OK```
+    ```bash
+    {
+        "id": 1,
+        "nome": "Nome Produto Update",
+        "descricao": "Descrição Produto Update",
+        "preco": "180.00",
+        "categoria": 1
+    }
+    ```
+
+* Delete: 
+
+    URL: ```localhost:8000/api/v1/produtos/<produto_id>/```
+    
+    Method: ```DELETE```
+    
+    Reponse: ```204 No Content```
+
+* Filter by nome: 
+
+    URL: ```localhost:8000/api/v1/produtos/nome__contains=<nome produto>```
+    
+    Method: ```GET```
+
+    Reponse: ```200 OK```
+    ```bash
+    {
+        "count": 1,
+        "next": "localhost:8000/api/v1/produtos/?limit=10&nome__contains=<nome produto>&offset=10",
+        "previous": null,
+        "results": [
+            {
+                "id": 1,
+                "nome": "Nome Produto",
+                "descricao": "Descrição Produto",
+                "preco": "180.00",
+                "categoria": 1
+            }
+        ]
+    }
+    ```
+
+* Filter by descricao: 
+
+    URL: ```localhost:8000/api/v1/produtos/descricao__contains=<nome produto>```
+    
+    Method: ```GET```
+
+    Reponse: ```200 OK```
+    ```bash
+    {
+        "count": 1,
+        "next": "localhost:8000/api/v1/produtos/?limit=10&descricao__contains=<nome produto>&offset=10",
+        "previous": null,
+        "results": [
+            {
+                "id": 1,
+                "nome": "Nome Produto",
+                "descricao": "Descrição Produto",
+                "preco": "180.00",
+                "categoria": 1
+            }
+        ]
+    }
+    ```
+  
+### Pagination:
+The default pagination page size is 10. However you can set the **page size** sending the **limit** value in **query params**
+
+* Examples:
+    
+    URL: ```localhost:8000/api/v1/categorias/?limit=2```
+    
+    URL: ```localhost:8000/api/v1/produtos/?limit=2```
