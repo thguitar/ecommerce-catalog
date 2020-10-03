@@ -241,7 +241,8 @@ Response: ```200 OK```
                 "nome": "Nome Produto",
                 "descricao": "Descrição Produto",
                 "preco": "180.00",
-                "categoria": 1
+                "categoria": 1,
+                "imagem": '<image_url>'
             }
         ]
     }
@@ -260,7 +261,8 @@ Response: ```200 OK```
         "nome": "Nome Produto",
         "descricao": "Descrição Produto",
         "preco": "180.00",
-        "categoria": 1
+        "categoria": 1,
+        "imagem": '<image_url>'
     }
     ```
 
@@ -288,7 +290,8 @@ Response: ```200 OK```
         "nome": "Nome Produto",
         "descricao": "Descrição Produto",
         "preco": "180.00",
-        "categoria": 1
+        "categoria": 1,
+        "imagem": '<image_url>'
     }
     ```
 
@@ -314,7 +317,8 @@ Response: ```200 OK```
         "nome": "Nome Produto Update",
         "descricao": "Descrição Produto Update",
         "preco": "180.00",
-        "categoria": 1
+        "categoria": 1,
+        "imagem": '<image_url>'
     }
     ```
 
@@ -344,7 +348,8 @@ Response: ```200 OK```
                 "nome": "Nome Produto",
                 "descricao": "Descrição Produto",
                 "preco": "180.00",
-                "categoria": 1
+                "categoria": 1,
+                "imagem": '<image_url>'
             }
         ]
     }
@@ -368,7 +373,8 @@ Response: ```200 OK```
                 "nome": "Nome Produto",
                 "descricao": "Descrição Produto",
                 "preco": "180.00",
-                "categoria": 1
+                "categoria": 1,
+                "imagem": '<image_url>'
             }
         ]
     }

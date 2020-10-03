@@ -2,3 +2,4 @@
 /venv/
 /api/migrations/
 /db.sqlite3
+/media/
