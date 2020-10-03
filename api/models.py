@@ -1,7 +1,14 @@
+from uuid import uuid4
+
 from django.core.validators import MinValueValidator
 from django.db import models
 
 # Create your models here.
+
+
+def produto_directory_path(instance, filename):
+    filename = uuid4().hex + '.' + filename.split('.')[-1]
+    return 'imagens/produtos/{0}'.format(filename)
 
 
 class Categoria(models.Model):
@@ -32,6 +39,11 @@ class Produto(models.Model):
         on_delete=models.PROTECT,
         null=True,
         blank=True
+    )
+    imagem = models.ImageField(
+        null=True,
+        blank=True,
+        upload_to=produto_directory_path,
     )
 
     def __str__(self):
