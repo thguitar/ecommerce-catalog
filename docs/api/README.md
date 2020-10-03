@@ -367,7 +367,7 @@ Response: ```200 OK```
     ```
   
 ### Pagination:
-The default pagination page size is 10. However you can set the **page size** sending the **limit** value in **query params**
+The default pagination page size is 10. However you can set the **page size** sending the **limit** as an **query params**
 
 * Examples:
     
