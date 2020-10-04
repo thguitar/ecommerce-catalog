@@ -113,7 +113,7 @@ Response: ```200 OK```
     
 ## Catalog Endpoints
 
-### Categorias:
+### Categoria:
 
 * Get All: 
 
@@ -211,7 +211,7 @@ Response: ```200 OK```
     
 * Filter by nome: 
 
-    URL: ```localhost:8000/api/v1/categorias/?nome__contains=<nome categoria>```
+    URL: ```localhost:8000/api/v1/categorias/?nome=<nome categoria>```
     
     Method: ```GET```
 
@@ -230,7 +230,7 @@ Response: ```200 OK```
     }
     ```
 
-### Produtos:
+### Produto:
 
 * Get All: 
 
@@ -350,7 +350,7 @@ Response: ```200 OK```
 
 * Filter by nome: 
 
-    URL: ```localhost:8000/api/v1/produtos/?nome__contains=<nome produto>```
+    URL: ```localhost:8000/api/v1/produtos/?nome=<nome produto>```
     
     Method: ```GET```
 
@@ -375,7 +375,7 @@ Response: ```200 OK```
 
 * Filter by descricao: 
 
-    URL: ```localhost:8000/api/v1/produtos/?descricao__contains=<nome produto>```
+    URL: ```localhost:8000/api/v1/produtos/?descricao=<nome produto>```
     
     Method: ```GET```
 
@@ -399,7 +399,7 @@ Response: ```200 OK```
     ```
 * Filter by categoria: 
 
-    URL: ```localhost:8000/api/v1/produtos/?categoria__id=<categoria_id>```
+    URL: ```localhost:8000/api/v1/produtos/?categoria=<categoria_id>```
     
     Method: ```GET```
 
